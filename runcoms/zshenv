@@ -9,3 +9,57 @@
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+# MySQL
+export MYSQL_HOME=/usr/local/mysql
+PATH=$MYSQL_HOME/bin:$PATH
+
+# Java et al
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
+export M2_HOME=/Users/pfig/Development/opt/apache-maven-3.3.3
+export MAVEN_HOME=$M2_HOME
+PATH=$MAVEN_HOME/bin:$PATH
+
+export LT_HOME=~/Applications/Development
+export LIQUIBASE_HOME=/usr/local/Cellar/liquibase/3.1.1/libexec
+
+export HADOOP_PREFIX=~/Development/opt/hadoop-2.6.0
+export HADOOP_HOME=$HADOOP_PREFIX
+PATH=$PATH:$HADOOP_HOME/bin
+
+export SPARK_HOME=~/Development/opt/spark-1.5.0-hadoop-2.6
+PATH=$PATH:$SPARK_HOME/bin
+
+export EDITOR='subl -w'
+
+# virtualenvwrapper and perlbrew
+export WORKON_HOME=~/.virtualenvs
+export PROJECT_HOME=~/Development
+#export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+# pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+source /usr/local/bin/virtualenvwrapper.sh
+source ~/perl5/perlbrew/etc/bashrc
+
+# go
+export GOPATH="/Users/pfig/Development/go"
+export GOBIN="$GOPATH/bin"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOBIN
+
+# vim-related
+export POWERLINE_CONFIG_PATH=/Users/pfig/.powerline
+
+PATH=$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+
+# nvm
+if [ -r ~/.nvm/nvm.sh ]; then
+  source ~/.nvm/nvm.sh
+fi
